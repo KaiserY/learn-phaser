@@ -1,0 +1,19 @@
+{
+  "name": "learn-phaser",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "dist/electron.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KaiserY/learn-phaser.git"
+  },
+  "keywords": [
+    "Electron"
+  ],
+  "author": "KaiserY <yueyang.fanqiang@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KaiserY/learn-phaser/issues"
+  },
+  "homepage": "https://github.com/KaiserY/learn-phaser#readme"
+}
