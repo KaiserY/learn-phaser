@@ -1,5 +1,12 @@
 {
   "scripts": {
+    "rimraf": "rimraf",
+    "tslint": "tslint",
+    "typings": "typings",
+    "webpack": "webpack",
+    "webpack-dev-server": "webpack-dev-server",
+    "webdriver-manager": "webdriver-manager",
+    "protractor": "protractor",
     "clean": "rimraf app/dist",
     "clean:dist": "rimraf dist/",
     "start": "webpack-dev-server --inline --progress --display-error-details --port 3000",
@@ -9,7 +16,11 @@
     "build:prod": "npm run clean && webpack --config config/webpack.prod.js --progress --display-error-details --profile --bail",
     "postinstall": "typings install",
     "pack": "npm run clean:dist && npm run build:prod && build",
-    "dist": "npm run clean:dist && npm run build:prod && build"
+    "dist": "npm run clean:dist && npm run build:prod && build",
+    "webdriver:update": "npm run webdriver-manager update",
+    "webdriver:start": "npm run webdriver-manager start",
+    "pree2e": "npm run webdriver:update -- --standalone",
+    "e2e": "npm run protractor"
   },
   "build": {
     "download": {
@@ -59,10 +70,12 @@
     "karma-webpack": "^1.7.0",
     "null-loader": "^0.1.1",
     "phantomjs-prebuilt": "^2.1.7",
+    "protractor": "^3.3.0",
     "raw-loader": "^0.5.1",
     "rimraf": "^2.5.2",
     "style-loader": "^0.13.1",
     "ts-loader": "^0.8.2",
+    "ts-node": "^0.9.3",
     "tslint": "^3.13.0",
     "tslint-loader": "^2.1.5",
     "typescript": "^1.8.10",

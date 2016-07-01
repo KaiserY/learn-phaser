@@ -28,6 +28,7 @@
   "files": [
     "src/app/app.component.spec.ts",
     "src/app/app.component.ts",
+    "src/app/app.e2e.ts",
     "src/main.ts",
     "src/polyfills.ts",
     "src/vendor.ts",
