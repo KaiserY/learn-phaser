@@ -1,7 +1,8 @@
-var webpackMerge = require('webpack-merge');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var commonConfig = require('./webpack.common.js');
-var helpers = require('./helpers');
+const webpackMerge = require('webpack-merge');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const commonConfig = require('./webpack.common.js');
+const helpers = require('./helpers');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = webpackMerge(commonConfig, {
   devtool: 'cheap-module-eval-source-map',
@@ -14,17 +15,21 @@ module.exports = webpackMerge(commonConfig, {
   },
 
   plugins: [
-    new ExtractTextPlugin('[name].css')
+    new ExtractTextPlugin('[name].css'),
+    new BrowserSyncPlugin({
+      // browse to http://localhost:3000/ during development,
+      // ./public directory is being served
+      host: 'localhost',
+      port: 3000,
+      server: {
+        baseDir: ['app/dist']
+      }
+    })
   ],
 
   tslint: {
     emitErrors: false,
     failOnHint: false,
     resourcePath: 'src'
-  },
-
-  devServer: {
-    historyApiFallback: true,
-    stats: 'minimal'
   }
 });
