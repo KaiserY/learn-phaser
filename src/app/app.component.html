@@ -16,9 +16,9 @@
       </md-list-item>
       <md-divider></md-divider>
       <h3 md-subheader>Demo Link List</h3>
-      <md-list-item *ngFor="let link of linkList">
+      <md-list-item *ngFor="let link of linkList" [routerLink]="[ '/link/' + link.id ]">
         <i md-list-avatar class="material-icons md-36">{{link.icon}}</i>
-        <h3 md-line>{{link.name}}</h3>
+        <h3 md-line>Link {{link.id}}</h3>
       </md-list-item>
     </md-nav-list>
   </md-sidenav>

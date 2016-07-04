@@ -32,6 +32,7 @@
     "src/app/app.e2e.ts",
     "src/app/app.routes.ts",
     "src/app/home/home.component.ts",
+    "src/app/link/link.component.ts",
     "src/main.ts",
     "src/polyfills.ts",
     "src/vendor.ts",

@@ -25,11 +25,11 @@ import "../public/css/styles.css";
 export class AppComponent {
   linkList = [
     {
-      name: "Link 1",
+      id: 1,
       icon: "folder"
     },
     {
-      name: "Link 2",
+      id: 2,
       icon: "folder"
     }
   ];
