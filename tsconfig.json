@@ -26,9 +26,12 @@
     "rewriteTsconfig": true
   },
   "files": [
+    "src/app/about/about.component.ts",
     "src/app/app.component.spec.ts",
     "src/app/app.component.ts",
     "src/app/app.e2e.ts",
+    "src/app/app.routes.ts",
+    "src/app/home/home.component.ts",
     "src/main.ts",
     "src/polyfills.ts",
     "src/vendor.ts",

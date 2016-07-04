@@ -1,7 +1,9 @@
-import { Component, ViewEncapsulation } from "@angular/core";
+import { Component } from "@angular/core";
 import { MdButton } from '@angular2-material/button';
 import { MdToolbar } from '@angular2-material/toolbar';
+import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
 import { MD_SIDENAV_DIRECTIVES } from '@angular2-material/sidenav';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 
 import "../../node_modules/material-design-icons/iconfont/material-icons.css";
 import "../public/css/material-icons.css";
@@ -12,11 +14,23 @@ import "../public/css/styles.css";
   selector: "ng-app",
   styles: [require("./app.component.css")],
   template: require("./app.component.html"),
-  encapsulation: ViewEncapsulation.None,
   directives: [
+    ROUTER_DIRECTIVES,
     MdToolbar,
     MD_SIDENAV_DIRECTIVES,
-    MdButton
+    MdButton,
+    MD_LIST_DIRECTIVES
   ]
 })
-export class AppComponent { }
+export class AppComponent {
+  linkList = [
+    {
+      name: "Link 1",
+      icon: "folder"
+    },
+    {
+      name: "Link 2",
+      icon: "folder"
+    }
+  ];
+}
