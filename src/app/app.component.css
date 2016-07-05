@@ -1,6 +1,9 @@
 ng-app {
   height: 100%;
 }
+md-toolbar span {
+  padding: 0px 16px;
+}
 md-sidenav-layout {
   height: calc(100% - 64px);
 }
@@ -13,4 +16,5 @@ main {
   text-align: center;
   margin-top: 50px;
   display: block;
+  height: calc(100% - 82px);
 }

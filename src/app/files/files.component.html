@@ -1,0 +1,16 @@
+<md-sidenav-layout>
+  <md-sidenav #start mode="side">
+    Start Sidenav.
+    <br>
+    <button md-button (click)="start.close()">Close</button>
+  </md-sidenav>
+  <md-sidenav #end align="end" mode="side">
+    End Sidenav.
+    <br>
+    <button md-button (click)="end.close()">Close</button>
+  </md-sidenav>
+
+  My regular content. This will be moved into the proper DOM at runtime.
+  <button md-button (click)="start.open()">Open Left</button>
+  <button md-button (click)="end.open()">Open Right</button>
+</md-sidenav-layout>

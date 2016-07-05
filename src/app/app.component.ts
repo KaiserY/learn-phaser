@@ -26,11 +26,11 @@ export class AppComponent {
   linkList = [
     {
       id: 1,
-      icon: "folder"
+      icon: "insert_link"
     },
     {
       id: 2,
-      icon: "folder"
+      icon: "insert_link"
     }
   ];
 }

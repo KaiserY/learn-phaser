@@ -1,5 +1,5 @@
 <md-toolbar color="primary">
-  Angular Material 2 App
+  <i class="material-icons md-36">cloud_circle</i><span>Angular Material 2 App</span>
 </md-toolbar>
 
 <md-sidenav-layout>
@@ -10,15 +10,21 @@
         <i md-list-avatar class="material-icons md-36">home</i>
         <span md-line >Home</span>
       </md-list-item>
-      <md-list-item [routerLink]="['/about']">
-        <i md-list-avatar class="material-icons md-36">priority_high</i>
-        <span md-line >About</span>
+      <md-list-item [routerLink]="['/files']">
+        <i md-list-avatar class="material-icons md-36">folder</i>
+        <span md-line >Files</span>
       </md-list-item>
       <md-divider></md-divider>
-      <h3 md-subheader>Demo Link List</h3>
+      <h3 md-subheader>Demo Links</h3>
       <md-list-item *ngFor="let link of linkList" [routerLink]="[ '/link/' + link.id ]">
         <i md-list-avatar class="material-icons md-36">{{link.icon}}</i>
         <h3 md-line>Link {{link.id}}</h3>
+      </md-list-item>
+      <md-divider></md-divider>
+      <h3 md-subheader>Other Links</h3>
+      <md-list-item [routerLink]="['/about']">
+        <i md-list-avatar class="material-icons md-36">info</i>
+        <span md-line >About</span>
       </md-list-item>
     </md-nav-list>
   </md-sidenav>
