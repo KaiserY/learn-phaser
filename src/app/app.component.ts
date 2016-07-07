@@ -5,6 +5,8 @@ import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
 import { MD_SIDENAV_DIRECTIVES } from '@angular2-material/sidenav';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 
+import "../../node_modules/material-design-lite/material.min.css";
+import "../../node_modules/material-design-lite/material.min.js";
 import "../../node_modules/material-design-icons/iconfont/material-icons.css";
 import "../public/css/material-icons.css";
 import "../public/css/roboto.css";

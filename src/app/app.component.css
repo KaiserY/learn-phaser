@@ -1,20 +1,23 @@
 ng-app {
   height: 100%;
 }
+main {
+  padding: 16px;
+  text-align: center;
+  display: block;
+  height: calc(100% - 32px);
+  background-color: #cdd2ec;
+}
 md-toolbar span {
   padding: 0px 16px;
 }
 md-sidenav-layout {
   height: calc(100% - 64px);
 }
-md-sidenav {
+md-sidenav-layout md-sidenav {
   width: 200px;
-  color: black;
+  background-color: lime;
 }
-main {
-  padding: 1em;
-  text-align: center;
-  margin-top: 50px;
-  display: block;
-  height: calc(100% - 82px);
+md-nav-list {
+  background-color: #178417;
 }

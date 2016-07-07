@@ -1,6 +1,23 @@
 md-sidenav-layout {
   height: 100%;
 }
-md-sidenav {
+md-sidenav-layout {
+  height: 100%;
+}
+md-sidenav-layout md-sidenav {
   width: 200px;
+  background-color: lime;
+}
+md-list {
+  background-color: #178417;
+}
+table {
+  margin: 16px;
+  width: calc(100% - 32px);
+}
+table span {
+  vertical-align: middle;
+}
+table i {
+  vertical-align: middle;
 }
