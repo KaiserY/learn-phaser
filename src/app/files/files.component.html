@@ -5,7 +5,7 @@
         <span>Start Sidenav.</span>
       </md-list-item>
       <md-list-item>
-        <button md-button (click)="start.close()">Close</button>
+        <button md-raised-button color="primary" md-button (click)="start.close()">Close</button>
       </md-list-item>
     </md-list>
   </md-sidenav>
@@ -15,20 +15,32 @@
         <span>End Sidenav.</span>
       </md-list-item>
       <md-list-item>
-        <button md-button (click)="end.close()">Close</button>
+        <button md-raised-button color="primary" (click)="end.close()">Close</button>
       </md-list-item>
     </md-list>
   </md-sidenav>
 
-  My regular content. This will be moved into the proper DOM at runtime.
-  <button md-button (click)="start.open()">Open Left</button>
-  <button md-button (click)="end.open()">Open Right</button>
+  <button md-raised-button color="primary" (click)="start.open()">Open Left</button>
+  <button md-raised-button color="primary" (click)="end.open()">Open Right</button>
+
   <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
     <thead>
       <tr>
-        <th class="mdl-data-table__cell--non-numeric">Material</th>
-        <th>Quantity</th>
-        <th>Unit price</th>
+        <th class="mdl-data-table__cell--non-numeric" (click)="toggle()">
+          <i *ngIf="expandmore" class="material-icons">expand_more</i>
+          <i *ngIf="expandless" class="material-icons">expand_less</i>
+          <span>Material</span>
+        </th>
+        <th (click)="toggle()">
+          <i *ngIf="expandmore" class="material-icons">expand_more</i>
+          <i *ngIf="expandless" class="material-icons">expand_less</i>
+          <span>Quantity</span>
+        </th>
+        <th (click)="toggle()">
+          <i *ngIf="expandmore" class="material-icons">expand_more</i>
+          <i *ngIf="expandless" class="material-icons">expand_less</i>
+          <span>Unit price</span>
+        </th>
       </tr>
     </thead>
     <tbody>
