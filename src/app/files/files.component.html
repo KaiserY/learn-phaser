@@ -24,49 +24,54 @@
   <button md-raised-button color="primary" (click)="end.open()">Open Right</button>
 
   <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+    <colgroup>
+      <col width="50%">
+      <col width="25%">
+      <col width="25%">
+    </colgroup>
     <thead>
       <tr>
-        <th class="mdl-data-table__cell--non-numeric" (click)="toggle()">
-          <i *ngIf="expandmore" class="material-icons">expand_more</i>
-          <i *ngIf="expandless" class="material-icons">expand_less</i>
+        <th class="mdl-data-table__cell--non-numeric" (click)="toggle('a')">
           <span>Material</span>
+          <i *ngIf="expands.a.more" class="material-icons">expand_more</i>
+          <i *ngIf="expands.a.less" class="material-icons">expand_less</i>
         </th>
-        <th (click)="toggle()">
-          <i *ngIf="expandmore" class="material-icons">expand_more</i>
-          <i *ngIf="expandless" class="material-icons">expand_less</i>
+        <th class="mdl-data-table__cell--non-numeric" (click)="toggle('b')">
           <span>Quantity</span>
+          <i *ngIf="expands.b.more" class="material-icons">expand_more</i>
+          <i *ngIf="expands.b.less" class="material-icons">expand_less</i>
         </th>
-        <th (click)="toggle()">
-          <i *ngIf="expandmore" class="material-icons">expand_more</i>
-          <i *ngIf="expandless" class="material-icons">expand_less</i>
+        <th class="mdl-data-table__cell--non-numeric" (click)="toggle('c')">
           <span>Unit price</span>
+          <i *ngIf="expands.c.more" class="material-icons">expand_more</i>
+          <i *ngIf="expands.c.less" class="material-icons">expand_less</i>
         </th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td class="mdl-data-table__cell--non-numeric">
-          <i class="material-icons">folder</i>
+          <i class="material-icons md-36">folder</i>
           <span>Acrylic (Transparent)</span>
         </td>
-        <td>25</td>
-        <td>$2.90</td>
+        <td class="mdl-data-table__cell--non-numeric">25</td>
+        <td class="mdl-data-table__cell--non-numeric">$2.90</td>
       </tr>
       <tr>
         <td class="mdl-data-table__cell--non-numeric">
-          <i class="material-icons">folder</i>
+          <i class="material-icons md-36">folder</i>
           <span>Acrylic (Transparent)</span>
         </td>
-        <td>50</td>
-        <td>$1.25</td>
+        <td class="mdl-data-table__cell--non-numeric">50</td>
+        <td class="mdl-data-table__cell--non-numeric">$1.25</td>
       </tr>
       <tr>
         <td class="mdl-data-table__cell--non-numeric">
-          <i class="material-icons">folder</i>
+          <i class="material-icons md-36">insert_drive_file</i>
           <span>Acrylic (Transparent)</span>
         </td>
-        <td>10</td>
-        <td>$2.35</td>
+        <td class="mdl-data-table__cell--non-numeric">10</td>
+        <td class="mdl-data-table__cell--non-numeric">$2.35</td>
       </tr>
     </tbody>
   </table>

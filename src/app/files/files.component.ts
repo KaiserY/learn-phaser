@@ -14,22 +14,35 @@ import { MdButton } from '@angular2-material/button';
   ]
 })
 export class FilesComponent {
-  expandmore: boolean = false;
-  expandless: boolean = false;
+  expands: any = {
+    "a": {
+      more: false,
+      less: false
+    },
+    "b": {
+      more: false,
+      less: false
+    },
+    "c": {
+      more: false,
+      less: false
+    }
+  };
 
-  toggle() {
-    if (!this.expandmore && !this.expandless) {
-      this.expandmore = true;
-      this.expandless = false;
-    } else if (this.expandmore) {
-      this.expandmore = false;
-      this.expandless = true;
-    } else if (this.expandless) {
-      this.expandmore = true;
-      this.expandless = false;
+
+  toggle(type: any) {
+    if (!this.expands[type].more && !this.expands[type].less) {
+      this.expands[type].more = true;
+      this.expands[type].less = false;
+    } else if (this.expands[type].more) {
+      this.expands[type].more = false;
+      this.expands[type].less = true;
+    } else if (this.expands[type].less) {
+      this.expands[type].more = true;
+      this.expands[type].less = false;
     } else {
-      this.expandmore = false;
-      this.expandless = false;
+      this.expands[type].more = false;
+      this.expands[type].less = false;
     }
   };
 }

@@ -12,9 +12,9 @@ md-list {
   background-color: #178417;
 }
 table {
+  table-layout:fixed;
   margin: 16px;
   width: calc(100% - 32px);
-  transition: width 2s, height 2s, background-color 2s, transform 2s;
 }
 table span {
   vertical-align: middle;
