@@ -32,46 +32,34 @@
     <thead>
       <tr>
         <th class="mdl-data-table__cell--non-numeric" (click)="toggle('a')">
-          <span>Material</span>
+          <span>Name</span>
           <i *ngIf="expands.a.more" class="material-icons">expand_more</i>
           <i *ngIf="expands.a.less" class="material-icons">expand_less</i>
         </th>
         <th class="mdl-data-table__cell--non-numeric" (click)="toggle('b')">
-          <span>Quantity</span>
+          <span>Created Date</span>
           <i *ngIf="expands.b.more" class="material-icons">expand_more</i>
           <i *ngIf="expands.b.less" class="material-icons">expand_less</i>
         </th>
         <th class="mdl-data-table__cell--non-numeric" (click)="toggle('c')">
-          <span>Unit price</span>
+          <span>Size</span>
           <i *ngIf="expands.c.more" class="material-icons">expand_more</i>
           <i *ngIf="expands.c.less" class="material-icons">expand_less</i>
         </th>
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr *ngFor="let resource of content">
         <td class="mdl-data-table__cell--non-numeric">
-          <i class="material-icons md-36">folder</i>
-          <span>Acrylic (Transparent)</span>
+          <i [ngSwitch]="resource.type">
+          <i *ngSwitchCase="'folder'" class="material-icons md-36">folder</i>
+          <i *ngSwitchCase="'file'" class="material-icons md-36">insert_drive_file</i>
+          <i *ngSwitchDefault class="material-icons md-36">insert_drive_file</i>
+          </i>
+          <span>{{resource.name}}</span>
         </td>
-        <td class="mdl-data-table__cell--non-numeric">25</td>
-        <td class="mdl-data-table__cell--non-numeric">$2.90</td>
-      </tr>
-      <tr>
-        <td class="mdl-data-table__cell--non-numeric">
-          <i class="material-icons md-36">folder</i>
-          <span>Acrylic (Transparent)</span>
-        </td>
-        <td class="mdl-data-table__cell--non-numeric">50</td>
-        <td class="mdl-data-table__cell--non-numeric">$1.25</td>
-      </tr>
-      <tr>
-        <td class="mdl-data-table__cell--non-numeric">
-          <i class="material-icons md-36">insert_drive_file</i>
-          <span>Acrylic (Transparent)</span>
-        </td>
-        <td class="mdl-data-table__cell--non-numeric">10</td>
-        <td class="mdl-data-table__cell--non-numeric">$2.35</td>
+        <td class="mdl-data-table__cell--non-numeric">{{resource.createdDate | date:"MM/dd/yyyy"}}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{resource?.size}}</td>
       </tr>
     </tbody>
   </table>

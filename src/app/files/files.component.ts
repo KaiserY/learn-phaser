@@ -1,12 +1,16 @@
 import { Component } from "@angular/core";
-import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
-import { MD_SIDENAV_DIRECTIVES } from '@angular2-material/sidenav';
-import { MdButton } from '@angular2-material/button';
+import { MD_LIST_DIRECTIVES } from "@angular2-material/list";
+import { MD_SIDENAV_DIRECTIVES } from "@angular2-material/sidenav";
+import { MdButton } from "@angular2-material/button";
+
+import { FilesService } from "./files.service";
+import { Folder, Resource, File } from '../files';
 
 @Component({
   selector: "ng-files",
   styles: [require("./files.component.css")],
   template: require("./files.component.html"),
+  providers: [FilesService],
   directives: [
     MD_SIDENAV_DIRECTIVES,
     MD_LIST_DIRECTIVES,
@@ -14,6 +18,7 @@ import { MdButton } from '@angular2-material/button';
   ]
 })
 export class FilesComponent {
+  content: Resource[];
   expands: any = {
     "a": {
       more: false,
@@ -29,6 +34,9 @@ export class FilesComponent {
     }
   };
 
+  constructor(private filesService: FilesService) {
+    this.content = this.filesService.getFiles();
+  }
 
   toggle(type: any) {
     if (!this.expands[type].more && !this.expands[type].less) {

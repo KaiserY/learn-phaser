@@ -1,20 +1,26 @@
 md-sidenav-layout {
   height: 100%;
 }
-md-sidenav-layout {
-  height: 100%;
-}
 md-sidenav-layout md-sidenav {
   width: 200px;
   background-color: lime;
+}
+md-sidenav-layout md-content {
+  height: auto;
 }
 md-list {
   background-color: #178417;
 }
 table {
-  table-layout:fixed;
+  table-layout: fixed;
   margin: 16px;
   width: calc(100% - 32px);
+}
+table tbody {
+  overflow: auto;
+}
+table tbody tr {
+  height: 64px;
 }
 table span {
   vertical-align: middle;
