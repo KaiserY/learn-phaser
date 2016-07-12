@@ -15,11 +15,26 @@ export class FilesService {
     }
 
     for (var i = 0; i < 5; i++) {
-      this.files.push(new File(i, "folder " + (i + 1), new Date(), i));
+      this.files.push(new File(i, "file " + (i + 1), new Date(), i));
     }
   }
 
   getFiles(): Resource[] {
     return this.files;
+  }
+
+  sortByName(resources: Resource[]): Resource[] {
+    var folders = this.extractFolders(resources);
+    var files = this.extractFiles(resources);
+
+    return null;
+  }
+
+  extractFiles(resources: Resource[]): File[] {
+    return null;
+  }
+
+  extractFolders(resources: Resource[]): Folder[] {
+    return null;
   }
 }

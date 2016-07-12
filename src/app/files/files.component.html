@@ -1,14 +1,4 @@
 <md-sidenav-layout>
-  <md-sidenav #start mode="side">
-    <md-list>
-      <md-list-item>
-        <span>Start Sidenav.</span>
-      </md-list-item>
-      <md-list-item>
-        <button md-raised-button color="primary" md-button (click)="start.close()">Close</button>
-      </md-list-item>
-    </md-list>
-  </md-sidenav>
   <md-sidenav #end align="end" mode="side">
     <md-list>
       <md-list-item>
@@ -20,47 +10,70 @@
     </md-list>
   </md-sidenav>
 
-  <button md-raised-button color="primary" (click)="start.open()">Open Left</button>
-  <button md-raised-button color="primary" (click)="end.open()">Open Right</button>
+  <button md-raised-button color="primary" (click)="end.open()">Open Sidenav</button>
 
-  <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-    <colgroup>
-      <col width="50%">
-      <col width="25%">
-      <col width="25%">
-    </colgroup>
-    <thead>
-      <tr>
-        <th class="mdl-data-table__cell--non-numeric" (click)="toggle('a')">
-          <span>Name</span>
-          <i *ngIf="expands.a.more" class="material-icons">expand_more</i>
-          <i *ngIf="expands.a.less" class="material-icons">expand_less</i>
-        </th>
-        <th class="mdl-data-table__cell--non-numeric" (click)="toggle('b')">
-          <span>Created Date</span>
-          <i *ngIf="expands.b.more" class="material-icons">expand_more</i>
-          <i *ngIf="expands.b.less" class="material-icons">expand_less</i>
-        </th>
-        <th class="mdl-data-table__cell--non-numeric" (click)="toggle('c')">
-          <span>Size</span>
-          <i *ngIf="expands.c.more" class="material-icons">expand_more</i>
-          <i *ngIf="expands.c.less" class="material-icons">expand_less</i>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let resource of content">
-        <td class="mdl-data-table__cell--non-numeric">
-          <i [ngSwitch]="resource.type">
-          <i *ngSwitchCase="'folder'" class="material-icons md-36">folder</i>
-          <i *ngSwitchCase="'file'" class="material-icons md-36">insert_drive_file</i>
-          <i *ngSwitchDefault class="material-icons md-36">insert_drive_file</i>
-          </i>
-          <span>{{resource.name}}</span>
-        </td>
-        <td class="mdl-data-table__cell--non-numeric">{{resource.createdDate | date:"MM/dd/yyyy"}}</td>
-        <td class="mdl-data-table__cell--non-numeric">{{resource?.size}}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div id="header-table">
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+      <colgroup>
+        <col width="400px" style="background-color: #9ea7a6;">
+        <col width="200px" style="background-color: #666d6c;">
+        <col width="200px" style="background-color: #525454;">
+        <col>
+      </colgroup>
+      <thead>
+        <tr>
+          <th class="mdl-data-table__cell--non-numeric" (click)="sort('name')">
+            <span>Name</span>
+            <i [ngSwitch]="expands.name">
+            <i *ngSwitchCase="'more'" class="material-icons">expand_more</i>
+            <i *ngSwitchCase="'less'" class="material-icons">expand_less</i>
+            <i *ngSwitchDefault class="material-icons"></i>
+            </i>
+          </th>
+          <th class="mdl-data-table__cell--non-numeric" (click)="sort('createdDate')">
+            <span>Created Date</span>
+            <i [ngSwitch]="expands.createdDate">
+            <i *ngSwitchCase="'more'" class="material-icons">expand_more</i>
+            <i *ngSwitchCase="'less'" class="material-icons">expand_less</i>
+            <i *ngSwitchDefault class="material-icons"></i>
+            </i>
+          </th>
+          <th class="mdl-data-table__cell--non-numeric" (click)="sort('size')">
+            <span>Size</span>
+            <i [ngSwitch]="expands.size">
+            <i *ngSwitchCase="'more'" class="material-icons">expand_more</i>
+            <i *ngSwitchCase="'less'" class="material-icons">expand_less</i>
+            <i *ngSwitchDefault class="material-icons"></i>
+            </i>
+          </th>
+          <th class="mdl-data-table__cell--non-numeric"></th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div id="data-table">
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+      <colgroup>
+        <col width="400px" style="background-color: #9ea7a6;">
+        <col width="200px" style="background-color: #666d6c;">
+        <col width="200px" style="background-color: #525454;">
+        <col>
+      </colgroup>
+      <tbody>
+        <tr *ngFor="let resource of content" (click)="end.open()">
+          <td class="mdl-data-table__cell--non-numeric">
+            <i [ngSwitch]="resource.type">
+            <i *ngSwitchCase="'folder'" class="material-icons md-36">folder</i>
+            <i *ngSwitchCase="'file'" class="material-icons md-36">insert_drive_file</i>
+            <i *ngSwitchDefault class="material-icons md-36">insert_drive_file</i>
+            </i>
+            <span>{{resource.name}}</span>
+          </td>
+          <td class="mdl-data-table__cell--non-numeric">{{resource.createdDate | date:"MM/dd/yyyy"}}</td>
+          <td class="mdl-data-table__cell--non-numeric">{{resource?.size}}</td>
+          <td class="mdl-data-table__cell--non-numeric"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </md-sidenav-layout>

@@ -20,37 +20,36 @@ import { Folder, Resource, File } from '../files';
 export class FilesComponent {
   content: Resource[];
   expands: any = {
-    "a": {
-      more: false,
-      less: false
-    },
-    "b": {
-      more: false,
-      less: false
-    },
-    "c": {
-      more: false,
-      less: false
-    }
+    "name": "more",
+    "createdDate": "",
+    "size": ""
   };
 
   constructor(private filesService: FilesService) {
     this.content = this.filesService.getFiles();
   }
 
-  toggle(type: any) {
-    if (!this.expands[type].more && !this.expands[type].less) {
-      this.expands[type].more = true;
-      this.expands[type].less = false;
-    } else if (this.expands[type].more) {
-      this.expands[type].more = false;
-      this.expands[type].less = true;
-    } else if (this.expands[type].less) {
-      this.expands[type].more = true;
-      this.expands[type].less = false;
+  sort(type: string) {
+    if (this.expands[type] === "more") {
+      this.expands[type] = "less";
     } else {
-      this.expands[type].more = false;
-      this.expands[type].less = false;
+      this.expands[type] = "more";
+    }
+
+    switch (type) {
+      case "size":
+        this.expands.name = "";
+        this.expands.createdDate = "";
+        break;
+      case "createdDate":
+        this.expands.name = "";
+        this.expands.size = "";
+        break;
+      case "name":
+      default:
+        this.expands.createdDate = "";
+        this.expands.size = "";
+        break;
     }
   };
 }
