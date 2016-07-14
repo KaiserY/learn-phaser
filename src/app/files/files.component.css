@@ -16,7 +16,7 @@ md-list {
   overflow: hidden;
 }
 #data-table {
-  height: calc(100% - 84px);
+  height: calc(100% - 86px);
   overflow-y: auto;
   overflow-x: hidden;
 }
