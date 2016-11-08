@@ -7,39 +7,38 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": false,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "baseUrl": "./src",
+    "paths": {},
+    "lib": [
+      "dom",
+      "es6"
+    ],
+    "types": [
+      "hammerjs",
+      "jasmine",
+      "node",
+      "protractor",
+      "selenium-webdriver",
+      "source-map",
+      "uglify-js",
+      "webpack"
+    ]
   },
   "awesomeTypescriptLoaderOptions": {
     "forkChecker": true,
     "useWebpackText": true
   },
   "filesGlob": [
-    "src/**/*.ts",
-    "typings/index.d.ts"
+    "src/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "dist"
   ],
   "compileOnSave": false,
   "buildOnSave": false,
   "atom": {
-    "rewriteTsconfig": true
-  },
-  "files": [
-    "src/app/about/about.component.ts",
-    "src/app/app.component.spec.ts",
-    "src/app/app.component.ts",
-    "src/app/app.e2e.ts",
-    "src/app/app.routes.ts",
-    "src/app/files.ts",
-    "src/app/files/files.component.ts",
-    "src/app/files/files.service.ts",
-    "src/app/home/home.component.ts",
-    "src/app/link/link.component.ts",
-    "src/app/notfound/notfound.component.ts",
-    "src/main.ts",
-    "src/polyfills.ts",
-    "src/vendor.ts",
-    "typings/index.d.ts"
-  ]
+    "rewriteTsconfig": false
+  }
 }
