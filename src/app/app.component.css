@@ -8,6 +8,9 @@ main {
   height: calc(100% - 32px);
   background-color: #cdd2ec;
 }
+md-toolbar {
+  background-color: lawngreen;
+}
 md-toolbar span {
   padding: 0px 16px;
 }
