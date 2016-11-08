@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from "@angular/core";
+import { Component, ViewEncapsulation, OnInit  } from "@angular/core";
 
 import { AppState } from './app.service';
 
@@ -14,7 +14,7 @@ import { AppState } from './app.service';
   styleUrls: ["./app.component.css"],
   templateUrl: "./app.component.html"
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   linkList = [
     {
       id: 1,

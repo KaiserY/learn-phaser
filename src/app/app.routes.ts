@@ -1,3 +1,4 @@
+import { NgModule }from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from "./home";
 import { AboutComponent } from "./about";
@@ -7,8 +8,8 @@ import { NotFoundComponent } from "./notfound";
 
 import { DataResolver } from './app.resolver';
 
-export const ROUTES: Routes = [
-  { path: '', component: HomeComponent },
+const ROUTES: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'link/:id', component: LinkComponent },
@@ -16,3 +17,9 @@ export const ROUTES: Routes = [
   { path: '404', component: NotFoundComponent },
   { path: '**', component: NotFoundComponent },
 ];
+
+@NgModule({
+  imports: [ RouterModule.forRoot(ROUTES, { useHash: true }) ],
+  exports: [ RouterModule ]
+})
+export class AppRoutingModule {}
