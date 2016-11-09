@@ -51,7 +51,7 @@ module.exports = function (options) {
       }, {
         test: /\.css$/,
         exclude: helpers.root('src', 'app'),
-        loaders: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: ['css']})
+        loaders: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: ['css'] })
       },
       {
         test: /\.css$/,
@@ -63,7 +63,7 @@ module.exports = function (options) {
     plugins: [
       new ForkCheckerPlugin(),
       new CommonsChunkPlugin({
-        name: ['polyfills', 'vendor'].reverse()
+        name: ['polyfills', 'vendor']
       }),
       new ContextReplacementPlugin(
         // The (\\|\/) piece accounts for path separators in *nix and Windows

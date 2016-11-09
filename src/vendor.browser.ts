@@ -18,9 +18,9 @@ import '@angular/router';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 
-import "./../node_modules/material-design-lite/material.min.css";
-import "./../node_modules/material-design-lite/material.min.js";
-import "./../node_modules/material-design-icons/iconfont/material-icons.css";
+import "../node_modules/material-design-lite/material.min.css";
+import "../node_modules/material-design-lite/material.min.js";
+import "../node_modules/material-design-icons/iconfont/material-icons.css";
 import "./public/css/material-icons.css";
 import "./public/css/roboto.css";
 import "./public/css/styles.css";

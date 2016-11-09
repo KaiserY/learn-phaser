@@ -1,6 +1,6 @@
 {
   "name": "learn-phaser",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A minimal Electron application",
   "main": "dist/electron.js",
   "repository": {
