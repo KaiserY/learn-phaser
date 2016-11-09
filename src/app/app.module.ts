@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '@angular/material';
+import { IonicApp, IonicModule } from 'ionic-angular';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -36,7 +37,8 @@ type StoreType = {
  * `AppModule` is the main entry point into Angular2's bootstraping process
  */
 @NgModule({
-  bootstrap: [AppComponent],
+  entryComponents: [AppComponent],
+  bootstrap: [IonicApp],
   declarations: [
     AppComponent,
     AboutComponent,
@@ -46,11 +48,12 @@ type StoreType = {
     FilesComponent
   ],
   imports: [ // import Angular's modules
+    IonicModule.forRoot(AppComponent),
     MaterialModule.forRoot(),
     BrowserModule,
     FormsModule,
-    HttpModule,
-    AppRoutingModule
+    HttpModule
+    // AppRoutingModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,

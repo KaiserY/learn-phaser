@@ -26,7 +26,7 @@ module.exports = function (options) {
     },
 
     resolve: {
-      extensions: ['.ts', '.js', '.json'],
+      extensions: ['.ts', '.js', '.json', '.scss'],
       modules: [helpers.root('src'), 'node_modules']
     },
 
@@ -57,6 +57,15 @@ module.exports = function (options) {
         test: /\.css$/,
         include: helpers.root('src', 'app'),
         loader: 'raw'
+      }, {
+        test: /\.scss$/,
+        exclude: helpers.root('src', 'app'),
+        loaders: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: ['sass-loader'] })
+      },
+      {
+        test: /\.scss$/,
+        include: helpers.root('src', 'app'),
+        loader: 'sass-loader'
       }]
     },
 
