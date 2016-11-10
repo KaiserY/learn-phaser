@@ -61,7 +61,9 @@ module.exports = function (options) {
         loader: 'raw'
       }, {
         test: /\.scss$/,
-        loaders: ['to-string', 'css', 'resolve-url', 'sass']
+        exclude: /node_modules/,
+        loaders: ['style', 'css', 'resolve-url?fail', 'sass?sourceMap']
+        // loaders: ExtractTextPlugin.extract({fallbackLoader: 'style', loader: ['css', 'resolve-url', 'sass?sourceMap']})
       }]
     },
 
@@ -88,16 +90,7 @@ module.exports = function (options) {
       new ScriptExtHtmlWebpackPlugin({
         defaultAttribute: 'defer'
       }),
-      new LoaderOptionsPlugin({
-        options: {
-          sassLoader: {
-            includePaths: [
-              "node_modules/ionic-angular/css",
-              "node_modules/ionicons/dist/scss"
-            ]
-          }
-        }
-      })
+      new LoaderOptionsPlugin({})
     ],
 
     node: {

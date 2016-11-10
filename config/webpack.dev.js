@@ -52,11 +52,9 @@ module.exports = function (options) {
             failOnHint: false,
             resourcePath: 'src'
           },
-          sassLoader: {
-            includePaths: [
-              "node_modules/ionic-angular/css",
-              "node_modules/ionicons/dist/scss"
-            ]
+          context: helpers.root('src'),
+          output: {
+            path: helpers.root('app/dist')
           }
         }
       }),
@@ -64,7 +62,8 @@ module.exports = function (options) {
         host: HOST,
         port: PORT,
         files: "app/dist/**/*",
-        server: { baseDir: ['app/dist/'] }
+        server: { baseDir: ['app/dist/'] },
+        open: false
       })
     ],
     node: {
