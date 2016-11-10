@@ -51,6 +51,12 @@ module.exports = function (options) {
             emitErrors: false,
             failOnHint: false,
             resourcePath: 'src'
+          },
+          sassLoader: {
+            includePaths: [
+              "node_modules/ionic-angular/css",
+              "node_modules/ionicons/dist/scss"
+            ]
           }
         }
       }),

@@ -27,7 +27,9 @@ module.exports = function (options) {
 
     resolve: {
       extensions: ['.ts', '.js', '.json', '.scss'],
-      modules: [helpers.root('src'), 'node_modules']
+      modules: [
+        helpers.root('src'),
+        'node_modules']
     },
 
     module: {
@@ -59,13 +61,7 @@ module.exports = function (options) {
         loader: 'raw'
       }, {
         test: /\.scss$/,
-        exclude: helpers.root('src', 'app'),
-        loaders: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: ['sass-loader'] })
-      },
-      {
-        test: /\.scss$/,
-        include: helpers.root('src', 'app'),
-        loader: 'sass-loader'
+        loaders: ['to-string', 'css', 'resolve-url', 'sass']
       }]
     },
 
@@ -92,7 +88,16 @@ module.exports = function (options) {
       new ScriptExtHtmlWebpackPlugin({
         defaultAttribute: 'defer'
       }),
-      new LoaderOptionsPlugin({})
+      new LoaderOptionsPlugin({
+        options: {
+          sassLoader: {
+            includePaths: [
+              "node_modules/ionic-angular/css",
+              "node_modules/ionicons/dist/scss"
+            ]
+          }
+        }
+      })
     ],
 
     node: {

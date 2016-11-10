@@ -18,11 +18,19 @@ import '@angular/router';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 
-import "../node_modules/material-design-lite/material.min.css";
-import "../node_modules/material-design-lite/material.min.js";
-import "../node_modules/material-design-icons/iconfont/material-icons.css";
-import "./public/css/material-icons.css";
-import "./public/css/roboto.css";
+import './public/css/index.scss';
+
+
+
+// import "../node_modules/ionic-angular/css/ionic.css";
+// import "../node_modules/ionicons/dist/css/ionicons.css";
+// import "../node_modules/ionicons/dist/css/ionicons-core.css";
+
+// import "../node_modules/material-design-lite/material.min.css";
+// import "../node_modules/material-design-lite/material.min.js";
+// import "../node_modules/material-design-icons/iconfont/material-icons.css";
+// import "./public/css/material-icons.css";
+// import "./public/css/roboto.css";
 import "./public/css/styles.css";
 
 if ('production' === process.env.ENV) {
