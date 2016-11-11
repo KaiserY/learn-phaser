@@ -4,7 +4,7 @@
 // --------------------------------------------------
 // Makes Ionic Sass functions available to your App
 
-// @import 'globals.core';
+/*@import 'globals.core';*/
 
 
 // App Shared Color Variables
@@ -28,5 +28,11 @@ $colors: (
   instagram:  #235D8D
 );
 // $ionicons: false;
+
+/*@import "ionic.theme.default";*/
+
 $font-path: '~ionic-angular/fonts';
 $ionicons-font-path: '~ionicons/dist/fonts';
+
+@import '~ionic-angular/css/ionic';
+@import '~ionicons/dist/scss/ionicons';

@@ -18,7 +18,7 @@ import '@angular/router';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 
-import './public/css/index.scss';
+import './public/css/variables.scss';
 
 // import "../node_modules/ionic-angular/css/ionic.css";
 // import "../node_modules/ionicons/dist/css/ionicons.css";
