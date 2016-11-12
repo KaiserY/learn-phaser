@@ -86,6 +86,10 @@ module.exports = function (options) {
       }),
       new CopyWebpackPlugin([{
         from: 'src/electron.js'
+      }, {
+        from: '**/*',
+        context: 'src/assets',
+        to: 'assets'
       }]),
       new ScriptExtHtmlWebpackPlugin({
         defaultAttribute: 'defer'

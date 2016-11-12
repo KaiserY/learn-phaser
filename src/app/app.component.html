@@ -1,47 +1,72 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Angular Material 2 App</ion-title>
-  </ion-toolbar>
-</ion-header>
-<ion-content>main</ion-content>
-<ion-footer>
-  <ion-toolbar>
-    <ion-title>Footer</ion-title>
-  </ion-toolbar>
-</ion-footer>
+<!-- logged out menu -->
+<ion-menu id="loggedOutMenu" [content]="content">
 
-<!--<md-toolbar color="primary">
-  <i class="material-icons md-36">cloud_circle</i><span>Angular Material 2 App</span>
-</md-toolbar>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-<md-sidenav-layout>
-  <md-sidenav mode="side" opened="true">
-    <md-nav-list>
-      <h3 md-subheader>Real Links</h3>
-      <md-list-item [routerLink]="['/home']">
-        <i md-list-avatar class="material-icons md-36">home</i>
-        <span md-line>Home</span>
-      </md-list-item>
-      <md-list-item [routerLink]="['/files']">
-        <i md-list-avatar class="material-icons md-36">folder</i>
-        <span md-line>Files</span>
-      </md-list-item>
-      <md-divider></md-divider>
-      <h3 md-subheader>Demo Links</h3>
-      <md-list-item *ngFor="let link of linkList" [routerLink]="[ '/link/' + link.id ]">
-        <i md-list-avatar class="material-icons md-36">{{link.icon}}</i>
-        <h3 md-line>Link {{link.id}}</h3>
-      </md-list-item>
-      <md-divider></md-divider>
-      <h3 md-subheader>Other Links</h3>
-      <md-list-item [routerLink]="['/about']">
-        <i md-list-avatar class="material-icons md-36">info</i>
-        <span md-line>About</span>
-      </md-list-item>
-    </md-nav-list>
-  </md-sidenav>
+  <ion-content class="outer-content">
 
-  <main>
-    <router-outlet></router-outlet>
-  </main>
-</md-sidenav-layout>-->
+    <ion-list>
+      <ion-list-header>
+        Navigate
+      </ion-list-header>
+      <button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)">
+        <ion-icon item-left [name]="p.icon"></ion-icon>
+        {{p.title}}
+      </button>
+    </ion-list>
+
+    <ion-list>
+      <ion-list-header>
+        Account
+      </ion-list-header>
+      <button ion-item menuClose *ngFor="let p of loggedOutPages" (click)="openPage(p)">
+        <ion-icon item-left [name]="p.icon"></ion-icon>
+        {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- logged in menu -->
+<ion-menu id="loggedInMenu" [content]="content">
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="outer-content">
+
+    <ion-list>
+      <ion-list-header>
+        Navigate
+      </ion-list-header>
+      <button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)">
+        <ion-icon item-left [name]="p.icon"></ion-icon>
+        {{p.title}}
+      </button>
+    </ion-list>
+
+    <ion-list>
+      <ion-list-header>
+        Account
+      </ion-list-header>
+      <button ion-item menuClose *ngFor="let p of loggedInPages" (click)="openPage(p)">
+        <ion-icon item-left [name]="p.icon"></ion-icon>
+        {{p.title}}
+      </button>
+    </ion-list>
+
+  </ion-content>
+
+</ion-menu>
+
+
+<!-- main navigation -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
