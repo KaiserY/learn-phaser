@@ -43,7 +43,7 @@ module.exports = function (options) {
           'NODE_ENV': JSON.stringify(METADATA.ENV)
         }
       }),
-      new ExtractTextPlugin('[name].css'),
+      new ExtractTextPlugin('[name].bundle.css'),
       new LoaderOptionsPlugin({
         debug: true,
         options: {

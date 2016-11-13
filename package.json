@@ -10,11 +10,13 @@
     "clean": "rimraf app/dist",
     "clean:dist": "rimraf dist/",
     "start": "npm run server:dev",
-    "electron": "npm run build:dev && electron ./app",
+    "electron:dev": "npm run build:dev && electron ./app",
+    "electron:prod": "npm run build:prod && electron ./app",
     "test": "karma start",
     "server:dev": "npm run clean && better-npm-run server:dev",
+    "server:prod": "npm run clean && better-npm-run server:prod",
     "build:dev": "npm run clean && better-npm-run build:dev",
-    "build:prod": "npm run clean && webpack --progress --display-error-details --profile --bail",
+    "build:prod": "npm run clean && better-npm-run build:prod",
     "pack": "npm run clean:dist && npm run build:prod && build",
     "dist": "npm run clean:dist && npm run build:prod && build",
     "webdriver:update": "npm run webdriver-manager update",
@@ -29,10 +31,22 @@
         "NODE_ENV": "dev"
       }
     },
+    "build:prod": {
+      "command": "webpack --progress --profile --colors --display-reasons --display-error-details",
+      "env": {
+        "NODE_ENV": "prod"
+      }
+    },
     "server:dev": {
       "command": " webpack --progress --profile --colors --display-reasons --display-error-details --watch",
       "env": {
         "NODE_ENV": "dev"
+      }
+    },
+    "server:prod": {
+      "command": " webpack --progress --profile --colors --display-reasons --display-error-details --watch",
+      "env": {
+        "NODE_ENV": "prod"
       }
     }
   },
@@ -119,6 +133,7 @@
     "typedoc": "^0.5.1",
     "typescript": "^2.0.9",
     "webpack": "2.1.0-beta.25",
+    "webpack-md5-hash": "0.0.5",
     "webpack-merge": "^0.15.0"
   }
 }
