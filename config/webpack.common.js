@@ -49,20 +49,20 @@ module.exports = function (options) {
         exclude: [helpers.root('src/index.html')]
       }, {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-        loader: 'file?name=assets/[name].[hash].[ext]'
+        loader: 'file-loader?name=assets/[name].[hash].[ext]'
       }, {
         test: /\.css$/,
         exclude: helpers.root('src', 'app'),
-        loaders: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: ['css'] })
+        loaders: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: ['css-loader'] })
       },
       {
         test: /\.css$/,
         include: helpers.root('src', 'app'),
-        loader: 'raw'
+        loader: 'raw-loader'
       }, {
         test: /\.scss$/,
         exclude: /node_modules/,
-        loaders: ['style', 'css', 'resolve-url?fail', 'sass?sourceMap']
+        loaders: ['style-loader', 'css-loader', 'resolve-url-loader?fail', 'sass-loader?sourceMap']
         // loaders: ExtractTextPlugin.extract({fallbackLoader: 'style', loader: ['css', 'resolve-url', 'sass?sourceMap']})
       }]
     },
